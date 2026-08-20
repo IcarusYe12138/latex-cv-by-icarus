@@ -1,0 +1,3 @@
+interface:
+  display_name: "Latex CV by Icarus"
+  short_description: "预制 LaTeX 模板 + Agent 工作流：迭代优化简历、控制版式，并交付可投递 PDF"

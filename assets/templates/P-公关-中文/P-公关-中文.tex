@@ -1,0 +1,127 @@
+% !TEX program = xelatex
+% ============================================================
+%   P-公关-中文 LaTeX 简历模板（横线节标题）
+%   脱敏可分享版 · 设置与正式渲染版一致
+%   A4 / 10pt 基准 · 四边 1.27cm · 行距 1.0 · 单栏 · 无页眉页脚
+%   照片使用 AI 证件照（乌鲁鲁）；中文思源黑体 CN + 西文 Helvetica
+%   内容较多时启用下方 9pt 正文（正式版即用此设置）
+% ============================================================
+\documentclass[a4paper,10pt]{article}
+
+\usepackage[margin=1.27cm]{geometry}
+\usepackage{fontspec}
+\usepackage{xeCJK}
+\usepackage[hidelinks]{hyperref}
+\usepackage{enumitem}
+\setlist{nosep, leftmargin=1.1em, itemsep=0pt, parsep=0pt, topsep=0pt}
+\usepackage{xcolor}
+\usepackage{graphicx}
+% Tabler Icons 联系方式图标（字体文件在 ../tabler-icons/）
+\newfontfamily{\tablerfont}[Path=../tabler-icons/]{tabler-icons.ttf}
+\newcommand{\tiPhone}{{\tablerfont\symbol{"EB09}}}
+\newcommand{\tiMail}{{\tablerfont\symbol{"EAE5}}}
+\newcommand{\tiWechat}{{\tablerfont\symbol{"F5F3}}}
+\newcommand{\tiLinkedin}{{\tablerfont\symbol{"EC8C}}}
+\newcommand{\tiBriefcase}{{\tablerfont\symbol{"EA46}}}
+\linespread{1.0}
+
+% 内容较多时启用 9pt 正文（行距 11pt）
+\makeatletter
+\renewcommand{\normalsize}{\fontsize{9pt}{11pt}\selectfont}
+\makeatother
+
+\XeTeXgenerateactualtext=1  % 保证 PDF 文字可提取/复制
+
+% ---------- 字体 ----------
+% 西文 Helvetica + 中文思源黑体 CN（按本机路径；分享/换机时改路径或字体名）
+\setmainfont{Helvetica}
+\setCJKmainfont[Path=/Users/icarus_ye/Library/Fonts/,UprightFont=SourceHanSansCN-Regular.otf,BoldFont=SourceHanSansCN-Bold.otf]{Source Han Sans CN}
+
+% ---------- 颜色 ----------
+\definecolor{sectionblue}{HTML}{2F2FE4}
+
+% ---------- 版面 ----------
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+
+% ---------- 版式命令 ----------
+% 姓名 20pt / 联系方式 10pt / 节标题 13pt；条目间距 4pt
+\newcommand{\cvname}[1]{{\fontsize{20pt}{24pt}\selectfont\bfseries #1\par}}
+\newcommand{\cvcontact}[1]{{\fontsize{10pt}{13pt}\selectfont #1\par}}
+\newcommand{\cvsep}{\hspace{0.5em}\textbar\hspace{0.5em}}
+% 节标题：蓝字 + 紧贴的蓝色横线（横线上移 5pt，避免间隙过大）
+\newcommand{\cvsection}[1]{%
+  \vspace{6pt}%
+  {\fontsize{13pt}{14pt}\selectfont\bfseries\color{sectionblue}#1\par}%
+  \vspace{-5pt}%
+  {\color{sectionblue}\rule{\textwidth}{1pt}}%
+  \vspace{2pt}}
+\newcommand{\cventry}[2]{\noindent{\bfseries #1}\hfill #2\par\vspace{0.5pt}}
+\newcommand{\cvline}[1]{\noindent #1\par\vspace{0.5pt}}
+\newenvironment{cvitems}{%
+  \begin{itemize}[label=\textbullet]%
+}{\end{itemize}}
+
+\begin{document}
+
+% ========== 姓名、联系方式与照片 ==========
+% 联系方式固定三行：电话+邮箱 / 领英+网站 / 微信；照片在右上角
+\noindent\begin{minipage}[c]{0.76\textwidth}
+  \cvname{张三}
+  \vspace{6pt}
+  \cvcontact{\tiPhone\ 138-0000-0000 \cvsep \tiMail\ \href{mailto:zhangsan@example.com}{zhangsan@example.com}}
+  \cvcontact{\tiLinkedin\ \href{https://www.linkedin.com/in/username}{linkedin.com/in/username} \cvsep \tiBriefcase\ \href{https://example.com}{example.com}}
+  \cvcontact{\tiWechat\ wxid\_example}
+\end{minipage}\hfill
+\begin{minipage}[c]{0.20\textwidth}
+  \raggedleft\includegraphics[width=2.2cm]{../中文简历照片/乌鲁鲁-AI证件照.png}
+\end{minipage}
+
+% ========== 教育经历 ==========
+% 学校｜专业 同一行，日期右对齐；不写地区
+\cvsection{教育经历}
+
+\cventry{某某大学｜市场营销 学士}{2021年09月 - 2025年06月}
+\cvline{\textbf{核心课程：}消费者行为学、市场调研与数据分析、品牌管理、整合营销传播}
+\cvline{\textbf{荣誉奖项：}一等奖学金（连续 2 年）、校级优秀毕业生}
+
+\vspace{4pt}
+\cventry{某某大学｜传播学 硕士}{2025年09月 - 2027年03月}
+\cvline{\textbf{核心课程：}品牌管理与利益相关者沟通、数字媒体技术与数据分析、危机沟通与声誉管理}
+
+% ========== 实习经历 ==========
+% 公司｜职位 同一行，日期右对齐；不写地区
+\cvsection{实习经历}
+
+\cventry{某科技有限公司 - 市场部｜市场营销实习生}{2024年06月 - 2024年09月}
+\begin{cvitems}
+  \item \textbf{内容运营：}独立负责公众号与小红书内容策划，产出 30+ 篇推文，平均阅读量提升 20\%。
+  \item \textbf{数据分析：}搭建周报数据看板，跟踪转化率等核心指标，支持投放策略调整。
+\end{cvitems}
+
+\vspace{4pt}
+\cventry{某文化传播有限公司｜新媒体运营实习生}{2023年07月 - 2023年09月}
+\begin{cvitems}
+  \item \textbf{账号运营：}协助运营抖音与 B 站账号，参与选题策划与脚本撰写，单条视频最高播放 10 万+。
+\end{cvitems}
+
+% ========== 项目经历 ==========
+\cvsection{项目经历}
+
+\cventry{某品牌开学季营销项目 策划（课程项目）｜项目负责人}{2024年03月 - 2024年06月}
+\cvline{\textbf{项目背景：}针对 Z 世代消费群体，为品牌制定开学季整合营销方案。}
+\begin{cvitems}
+  \item \textbf{策略产出：}完成竞品拆解与用户调研，提出社媒种草 + 校园快闪双主线创意，主导产出 40 页提案。
+  \item \textbf{项目成果：}方案获课程最高分，并被品牌方采纳进入执行排期。
+\end{cvitems}
+
+% ========== 技能 ==========
+\cvsection{技能}
+
+\begin{cvitems}
+  \item \textbf{技能：}Microsoft Office、Excel（数据透视表）、Photoshop、剪映、Python（基础数据处理）
+  \item \textbf{语言：}中文（母语）、粤语（基础会话）、英文（可作为工作语言）
+\end{cvitems}
+
+\end{document}

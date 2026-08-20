@@ -1,0 +1,132 @@
+% !TEX program = xelatex
+% ============================================================
+%   A-Advertising English LaTeX Resume Template (blue section bars)
+%   Desensitized shareable version · same settings as final PDFs
+%   A4 / 10pt base · 1.27cm margins · 1.0 line spacing
+%   No photo · Helvetica
+%   10pt body（内容多时可自行启用 9pt）
+% ============================================================
+\documentclass[a4paper,11pt]{article}
+
+\usepackage[margin=1.27cm]{geometry}
+\usepackage{fontspec}
+\usepackage[hidelinks]{hyperref}
+\usepackage{enumitem}
+\setlist{nosep, leftmargin=1.1em, itemsep=0pt, parsep=0pt, topsep=0pt}
+\usepackage{xcolor}
+\usepackage{graphicx}
+% Tabler Icons 联系方式图标（字体文件在 ../tabler-icons/）
+\newfontfamily{\tablerfont}[Path=../tabler-icons/]{tabler-icons.ttf}
+\newcommand{\tiPhone}{{\tablerfont\symbol{"EB09}}}
+\newcommand{\tiMail}{{\tablerfont\symbol{"EAE5}}}
+\newcommand{\tiWechat}{{\tablerfont\symbol{"F5F3}}}
+\newcommand{\tiLinkedin}{{\tablerfont\symbol{"EC8C}}}
+\newcommand{\tiBriefcase}{{\tablerfont\symbol{"EA46}}}
+\linespread{1.06}
+
+\XeTeXgenerateactualtext=1  % keeps PDF text extractable
+
+% ---------- Font ----------
+\setmainfont{Helvetica}
+
+% ---------- Color ----------
+\definecolor{sectionblue}{HTML}{2F2FE4}
+
+% ---------- Layout ----------
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+\setlength{\emergencystretch}{1.5em}
+\clubpenalty=10000
+\widowpenalty=10000
+\displaywidowpenalty=10000
+
+% ---------- Commands ----------
+% Name 20pt / contact 10pt / section title 13pt
+\newcommand{\cvname}[1]{{\fontsize{22pt}{26pt}\selectfont\bfseries #1\par}}
+\newcommand{\cvcontact}[1]{{\fontsize{11pt}{14pt}\selectfont #1\par}}
+\newcommand{\cvsep}{\hspace{0.4em}\textbar\hspace{0.4em}}
+\newcommand{\cvsection}[1]{%
+  \vspace{10pt}%
+  {\fontsize{13pt}{14pt}\selectfont\bfseries\color{sectionblue}%
+   \rule[-0.1em]{3pt}{1.0em}\hspace{6pt}\MakeUppercase{#1}\par}%
+  \vspace{3pt}}
+\newcommand{\cventry}[2]{\noindent{\bfseries #1}\hfill #2\par\vspace{0.5pt}\nopagebreak}
+\newcommand{\cvsub}[2][]{\noindent #2\hfill #1\par\vspace{0.5pt}}
+\newcommand{\cvline}[1]{\noindent #1\par\vspace{0.5pt}}
+\newenvironment{cvitems}{%
+  \begin{itemize}[label=\textbullet]%
+}{\end{itemize}}
+
+\begin{document}
+
+% ========== Name, Contact & Photo ==========
+% Contact fixed at three lines: phone+email / LinkedIn+website / WeChat
+\cvname{John Doe}
+\vspace{7pt}
+\cvcontact{\tiPhone\ +1 234 567 8900 \cvsep \tiMail\ \href{mailto:john.doe@email.com}{john.doe@email.com}}
+\cvcontact{\tiLinkedin\ \href{https://www.linkedin.com/in/johndoe}{linkedin.com/in/johndoe} \cvsep \tiBriefcase\ \href{https://example.com}{example.com}}
+\cvcontact{\tiWechat\ wxid\_example}
+
+% ========== Education ==========
+% School | Degree on one line, date right-aligned; no location line
+\cvsection{Education}
+
+\cventry{University of Example}{Sep 2025 -- Mar 2027}
+\cvsub[London, United Kingdom]{MSc in Bilingual Corporate Communication}
+\cvline{\textbf{Concentrations:} Integrated Marketing Communication, Digital Media Technology and Data Analytics, Crisis Communication and Reputation Management}
+
+\vspace{7pt}
+\cventry{University of Sample}{Sep 2022 -- Jun 2025}
+\cvsub[Preston, United Kingdom]{BA (Hons) International Journalism}
+\cvline{\textbf{Concentrations:} PR and Ethics, Multimedia Storytelling, News Reporting and Editing}
+\cvline{Merit-based Scholarship}
+
+% ========== Professional Experience ==========
+% Company | Role on one line, date right-aligned; no location line
+\cvsection{Professional Experience}
+
+\cventry{Example Advertising Agency}{Jun 2025 -- Aug 2025}
+\cvsub{Account Executive Intern}
+\begin{cvitems}
+  \item Coordinated influencer marketing campaigns for a beverage brand's back-to-school campaign, managing 50+ KOLs across TikTok and Xiaohongshu.
+  \item Executed content strategy achieving strong total reach and consistent month-over-month engagement growth.
+  \item Spearheaded viral content production with multiple videos reaching high view counts.
+\end{cvitems}
+
+\vspace{7pt}
+\cventry{Example PR Firm}{Jul 2024 -- Sep 2024}
+\cvsub{PR Consultant Intern}
+\begin{cvitems}
+  \item Drafted press releases and media advisories for tech and consumer goods clients.
+  \item Conducted media monitoring and sentiment analysis across 20+ platforms, producing weekly intelligence reports.
+  \item Supported event logistics for 3 press conferences and product launch events.
+\end{cvitems}
+
+% ========== Project Experience ==========
+\cvsection{Project Experience}
+
+\cventry{City Branding Campaign}{Apr 2026}
+\cvsub{Team Lead}
+\cvline{\textbf{Background:} developed an integrated brand communications strategy positioning the city as a talent destination.}
+\begin{cvitems}
+  \item Produced creative assets with AI tools and delivered a comprehensive proposal and brand video.
+\end{cvitems}
+
+\vspace{7pt}
+\cventry{Beauty Brand Social Media Campaign}{Mar 2026}
+\cvsub{Creative Strategist}
+\cvline{\textbf{Background:} designed a multi-platform social media campaign for a product launch targeting Gen Z consumers.}
+\begin{cvitems}
+  \item Created the content calendar and a KPI framework tracking engagement, reach and conversion metrics.
+\end{cvitems}
+
+% ========== Core Competencies ==========
+\cvsection{Core Competencies}
+
+\begin{cvitems}
+  \item \textbf{Skills:} Microsoft Office, Excel (PivotTables), Tableau, Social Media Analytics
+  \item \textbf{Languages:} Chinese (native), Cantonese (basic conversational), English (professional working proficiency)
+\end{cvitems}
+
+\end{document}
