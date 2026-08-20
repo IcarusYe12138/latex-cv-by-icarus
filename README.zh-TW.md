@@ -2,6 +2,13 @@
 
 [English](README.md) | [简体中文](README.zh-CN.md) | 繁體中文
 
+![LaTeX](https://img.shields.io/badge/LaTeX-XeLaTeX-2F2FE4?style=flat-square&logo=latex&logoColor=white)
+![Workflow](https://img.shields.io/badge/Workflow-Agent--Driven-2F2FE4?style=flat-square)
+![Bilingual](https://img.shields.io/badge/Bilingual-中文%20%7C%20English-2F2FE4?style=flat-square)
+![Templates](https://img.shields.io/badge/Templates-廣告%20%7C%20公關-2F2FE4?style=flat-square)
+![Validation](https://img.shields.io/badge/Validation-編譯%20%2B%20文字提取-2F2FE4?style=flat-square)
+![License](https://img.shields.io/badge/License-MIT-2F2FE4?style=flat-square)
+
 預製 LaTeX 履歷模板與 Agent 驅動工作流，用於把原始履歷內容打磨成結構清晰、版式穩定、可直接投遞的 PDF 履歷。
 
 `Latex CV by Icarus` 是一套把可重複使用的 LaTeX 模板與 Agent 工作流結合起來的履歷生產 Skill。它幫助使用者從原始或持續迭代中的履歷內容出發，透過結構化迭代、版式控制、校驗流程與交付規範，產出更成熟的職缺投遞版本。
@@ -40,6 +47,34 @@
 3. 將內容映射到 LaTeX 結構，而不是任意改寫事實
 4. 借助 Agent 持續迭代，直到履歷滿足職缺與頁數要求
 5. 編譯、校驗並交付最終 PDF
+
+## 快速開始
+
+```bash
+# 1. 克隆倉庫
+git clone https://github.com/IcarusYe12138/latex-cv-by-icarus.git
+cd latex-cv-by-icarus
+
+# 2. 從 assets/templates/ 中選擇模板（廣告 A / 公關 P × 中文 / 英文）
+
+# 3. 準備好你的 Markdown 履歷作為內容來源
+
+# 4. 使用 XeLaTeX 編譯
+latexmk -xelatex A-广告-中文.tex
+
+# 5. 校驗輸出
+pdftotext A-广告-中文.pdf - | head
+```
+
+如果要走完整的 Agent 工作流，可以把本 Skill 安裝到 TRAE / Codex 這類 Agent 中，讓它把 Markdown 履歷渲染成四份預製模板之一。Agent 會負責模板選擇、結構映射、版式調參與校驗。
+
+## 適用情境
+
+- **針對性投遞**：圍繞同一份 Markdown 內容，針對不同職缺迭代亮點、順序與重點
+- **中英雙語生產**：維護一份內容來源，同時輸出中文（1 頁）與英文（2 頁）版本
+- **廣告 / 公關方向**：選擇 A 或 P 模板系列，讓 Agent 推動內容對齊目標方向
+- **頁數控制**：在不刪內容的前提下，按調參階梯把履歷壓回一頁或控制在兩頁
+- **重複投遞**：每次新職缺都跑同一套工作流，保證輸出品質穩定一致
 
 ## 倉庫結構
 
