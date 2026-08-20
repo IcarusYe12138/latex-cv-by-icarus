@@ -25,6 +25,7 @@ description: 提供预制 LaTeX 简历模板与一套 Agent 驱动工作流：�
 - 断页纪律：开启 widow/club penalty、条目标题后 `\nopagebreak`，断页必须落在条目之间，不许切断单条要点。
 - 文字可提取：保留 `\XeTeXgenerateactualtext=1`，交付前用 pdftotext 验证。
 - 内容规范：数字用“1200 万+ 人次”这类中文量词写法；预计毕业统一 `(Exp.)`；避免 `%` 紧贴句号；英文冒号后首字母大写。
+- 主题色默认 `#2F2FE4`（Icarus 品牌色）。如要换自己的简历主题色，到 <https://colorhunt.co/> 选一组配色，只改模板里 `\definecolor{...}{HTML}{...}` 这一行的 HEX 值（去掉 `#`），四份模板同步替换。
 
 ## 工作流
 

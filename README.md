@@ -11,6 +11,8 @@ English | [简体中文](README.zh-CN.md) | [繁體中文](README.zh-TW.md)
 
 Prebuilt LaTeX resume templates and an agent-driven workflow for turning raw resume content into polished, job-ready CVs.
 
+Released under the [MIT License](LICENSE).
+
 `Latex CV by Icarus` is a resume-building skill that combines reusable LaTeX templates with an agent-guided workflow. It helps transform raw or evolving resume content into polished, application-ready CVs through structured iteration, layout control, validation checks, and delivery conventions.
 
 Rather than being just a static template repository, this project works as a complete CV production system. The templates define the formatting standard, while the workflow helps refine content, improve alignment with job requirements, manage page length, and ensure the final output is clean, consistent, and ready to deliver.
@@ -77,6 +79,24 @@ For a full agent-driven experience, install this skill into your TRAE/Codex-styl
 - **Ad / PR focus** — pick the A or P template family and let the agent align content with the target direction
 - **Page-length control** — fix “one-page” or “two-page” issues using the documented tuning ladder without deleting content
 - **Recurring submissions** — re-run the same workflow for every new role with consistent output quality
+
+## Customization
+
+The brand uses `#2F2FE4` as a default theme color, but the skill is meant to be free. To set your own resume theme:
+
+1. Browse palettes at <https://colorhunt.co/> and pick a 4-color set
+2. Choose one as the main color, one deep neutral for text
+3. Replace the HEX value in this line across the templates you use:
+
+```latex
+\definecolor{sectionblue}{HTML}{2F2FE4}
+```
+
+- Drop the `#` from the HEX value when pasting it
+- Apply the same color to all four templates (A/P × ZH/EN) for consistency
+- Keep changes minimal — only swap the main color; leave background, links, and gray scale at default for a calm look
+
+For the full tuning ladder (margins, spacing, line height, font size), see [references/版式与调参.md](references/版式与调参.md).
 
 ## Repository Structure
 
